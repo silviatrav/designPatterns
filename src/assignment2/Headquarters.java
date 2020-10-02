@@ -10,14 +10,20 @@ public class Headquarters {
     
     private String name;             	 // Headquarters identifier, a name
     private List<Agency> theAgencies;  // List of controlled agencies
-    
+    private static Headquarters instance;
+   
     /**
      * Constructs the headquarters from its name
      * @param name   Headquarters identifier, a name
      */
-    public Headquarters(String name) {
+
+    private Headquarters(String name) { 
         this.name = name;
         theAgencies = new ArrayList<Agency>();
+    }
+    
+    public static Headquarters getInstance(){
+        return instance;
     }
     
     /**
