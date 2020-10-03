@@ -2,6 +2,11 @@ package assignment2;
 
 import java.util.ArrayList;
 
+/**
+ * Computes the average first computing the average of the last five values 
+ * (or less values if there are less the five values) of each type of incomes, 
+ * and then averaging the two results. 
+ */
 public class LastFiveValuesAvg implements Average {
 
     @Override

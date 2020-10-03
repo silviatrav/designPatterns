@@ -3,8 +3,8 @@ package assignment2;
 import java.util.ArrayList;
 
 /**
+ * Interface for the average computation
  * DP: Strategy
- * 
  */
 
 public interface Average {

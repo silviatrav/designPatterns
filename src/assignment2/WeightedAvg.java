@@ -2,6 +2,9 @@ package assignment2;
 
 import java.util.ArrayList;
 
+/**
+ * Compute the average as (c1*average-shop-income + (1 – c1)*average-online-income)
+ */
 public class WeightedAvg implements Average {
 
     @Override
@@ -24,5 +27,7 @@ public class WeightedAvg implements Average {
 
         return c1*avgShopIncome + (1-c1)*avgOnlineIncome;
     }
+
+    
     
 }

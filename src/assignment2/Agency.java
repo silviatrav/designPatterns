@@ -12,9 +12,9 @@ public class Agency {
     private String name;                      // Agency identifier, a name
     private ArrayList<Integer> shopIncomes;   // incomes from the shop 
     private ArrayList<Integer> onlineIncomes; // incomes from the online e-commerce app
-	private boolean useTopFive = false;
-	private double averageIncomes;
-	private Memento state;
+	private boolean useTopFive = false;		// choose average method
+	private double averageIncomes;		// average of the incomes
+	private Memento state;		// for Memento DP
 	
 
 	/**
@@ -54,6 +54,10 @@ public class Agency {
 		}
 	}
 
+	/**
+	 * Calculate the average of the incomes
+	 * @return value of the average of the incomes
+	 */
 	public double getAverage(){
 		if (useTopFive){
 			LastFiveValuesAvg avg = new LastFiveValuesAvg();
@@ -65,16 +69,26 @@ public class Agency {
 		return averageIncomes;
 	}
 
+	/**
+	 * Select the averaging method
+	 * @param value 	a boolean that is true if the TopFiveIncomes method has to be used
+	 */
 	public void setUseOnlyTopFiveIncomes(boolean value) {
 		useTopFive = value;
 	}
 
+	/**
+	 * Save the current state 
+	 */
 	public void save(){
 		ArrayList<Integer> shopI = new ArrayList<Integer>(shopIncomes);
 		ArrayList<Integer> onlineI = new ArrayList<Integer>(onlineIncomes);
 		this.state = new Memento(shopI, onlineI);
 	}
 
+	/**
+	 * Restore a previous state
+	 */
 	public void restore(){
 		this.shopIncomes = state.getShopIncomes();
 		this.onlineIncomes = state.getOnlineIncomes();
