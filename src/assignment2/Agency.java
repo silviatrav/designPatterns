@@ -13,7 +13,10 @@ public class Agency {
     private ArrayList<Integer> shopIncomes;   // incomes from the shop 
     private ArrayList<Integer> onlineIncomes; // incomes from the online e-commerce app
 	private boolean useTopFive = false;
+	private double averageIncomes;
+	private Memento state;
 	
+
 	/**
 	 * Constructs the agency from their name
 	 * @param name  a name that identifies the agency.
@@ -54,15 +57,28 @@ public class Agency {
 	public double getAverage(){
 		if (useTopFive){
 			LastFiveValuesAvg avg = new LastFiveValuesAvg();
-			return avg.incomesAverage(shopIncomes, onlineIncomes);
+			averageIncomes = avg.incomesAverage(shopIncomes, onlineIncomes);
 		}else{
 			WeightedAvg avg = new WeightedAvg();
-			return avg.incomesAverage(shopIncomes, onlineIncomes);
+			averageIncomes = avg.incomesAverage(shopIncomes, onlineIncomes);
 		}
+		return averageIncomes;
 	}
 
 	public void setUseOnlyTopFiveIncomes(boolean value) {
 		useTopFive = value;
 	}
+
+	public void save(){
+		ArrayList<Integer> shopI = new ArrayList<Integer>(shopIncomes);
+		ArrayList<Integer> onlineI = new ArrayList<Integer>(onlineIncomes);
+		this.state = new Memento(shopI, onlineI);
+	}
+
+	public void restore(){
+		this.shopIncomes = state.getShopIncomes();
+		this.onlineIncomes = state.getOnlineIncomes();
+	}
+	
 	
 }
