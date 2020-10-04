@@ -69,8 +69,8 @@ public class Headquarters implements AvgCollection{
      * Implementation of the AvgIterator
      */
     public class AvgIterator implements AvgProvider{
-        List<Agency> theAgencies;
-        int index = 0;
+        private List<Agency> theAgencies;
+        private int index = 0;
 
         public AvgIterator(List<Agency> theAgencies){
             this.theAgencies = theAgencies;

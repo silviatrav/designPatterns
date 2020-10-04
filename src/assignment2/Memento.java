@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Memento, acts as a snapshot of the originator’s state.
  */
-public class Memento {
+public class Memento implements MementoInterface {
     private ArrayList<Integer> shopIncomes;
     private ArrayList<Integer> onlineIncomes;
 
@@ -16,9 +16,7 @@ public class Memento {
      */
     public Memento(ArrayList<Integer> shopIncomes, ArrayList<Integer> onlineIncomes) {
         this.shopIncomes = shopIncomes;
-        System.out.println(shopIncomes.size());
         this.onlineIncomes = onlineIncomes;
-        System.out.println(onlineIncomes.size());
     }
 
     public ArrayList<Integer> getShopIncomes() {
@@ -29,8 +27,5 @@ public class Memento {
         return onlineIncomes;
     }
 
-
- 
-    
 
 }
