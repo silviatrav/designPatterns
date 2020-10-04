@@ -29,8 +29,7 @@ public class TestCases {
         double avg3 = agency1.getAverage(); 
         assertEquals(75.0, avg3, 0.01);
 	}
-        
-        
+             
 	@Test
 	public void test1() {
 		Headquarters hq = Headquarters.getInstance();
@@ -69,6 +68,4 @@ public class TestCases {
         }
         assertEquals(150.0, sum2, 0.01); 
         }
-        
-
 }

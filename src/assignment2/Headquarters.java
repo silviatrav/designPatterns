@@ -62,20 +62,15 @@ public class Headquarters implements AvgCollection{
      */
     @Override
     public AvgProvider getAvgProvider() {
-        return new AvgIterator(theAgencies);
+        return new AvgIterator();
     }
 
     /**
      * Implementation of the AvgIterator
      */
     public class AvgIterator implements AvgProvider{
-        private List<Agency> theAgencies;
         private int index = 0;
-
-        public AvgIterator(List<Agency> theAgencies){
-            this.theAgencies = theAgencies;
-        }
-
+        
         @Override
         public double getNextAvg() {
             return theAgencies.get(index++).getAverage();
