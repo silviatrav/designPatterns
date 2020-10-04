@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /**
  * Represents an agency and their incomes.
  * Stores the name, shop incomes and online incomes.
- *
  */
 public class Agency {
 
@@ -14,7 +13,7 @@ public class Agency {
     private ArrayList<Integer> onlineIncomes; // incomes from the online e-commerce app
 	private boolean useTopFive = false;		// choose average method
 	private double averageIncomes;		// average of the incomes
-	private Memento state;		// for Memento DP
+	private Memento state;		// for Memento DP, it is private so Headquarters cannot access to it
 	
 
 	/**
